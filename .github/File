@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulta Legal – Lcda. Stephanie Padilla Ortiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+:root {
+  --cream: #f5ede0;
+  --cream-dark: #ecddc8;
+  --brown: #8b6340;
+  --brown-dark: #6b4a2a;
+  --brown-light: #c4956a;
+  --brown-lighter: #e8d5bc;
+  --text: #3d2b1a;
+  --text-light: #7a5c3e;
+  --white: #fdf8f2;
+  --border: #d4b896;
+  --error: #a03020;
+}
+
+html {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+margin: 0;
+padding: 0;
+background-color: var(–cream);
+font-family: ‘EB Garamond’, serif;
+font-size: 18px;
+color: var(–text);
+min-height: 100vh;
+background-image:
+radial-gradient(ellipse at 85% 5%, rgba(196,149,106,0.15) 0%, transparent 45%),
+radial-gradient(ellipse at 5% 95%, rgba(139,99,64,0.10) 0%, transparent 45%);
+}
+
+.page-wrapper {
+max-width: 800px;
+margin: 0 auto;
+padding: 56px 28px 100px;
+}
+
+/* HEADER */
+.header {
+text-align: center;
+margin-bottom: 52px;
+padding-bottom: 40px;
+border-bottom: 1px solid var(–border);
+}
+
+.logo-row {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+margin-bottom: 28px;
+}
+
+.scale-svg {
+width: 64px;
+height: 64px;
+color: var(–brown);
+flex-shrink: 0;
+}
+
+.divider-v {
+width: 1px;
+height: 60px;
+background: var(–border);
+}
+
+.firm-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2rem;
+font-weight: 600;
+color: var(–brown-dark);
+line-height: 1.2;
+text-align: left;
+}
+
+.firm-sub {
+font-family: ‘Cinzel’, serif;
+font-size: 0.68rem;
+letter-spacing: 0.22em;
+color: var(–brown-light);
+text-align: left;
+margin-top: 6px;
+}
+
+.page-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 3.8rem;
+font-weight: 300;
+font-style: italic;
+color: var(–brown-dark);
+letter-spacing: 0.02em;
+line-height: 1.1;
+margin-bottom: 14px;
+}
+
+.ornament {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 16px;
+margin: 14px 0 18px;
+color: var(–brown-light);
+font-size: 1.2rem;
+}
+
+.orn-line {
+height: 1px;
+width: 100px;
+background: linear-gradient(90deg, transparent, var(–brown-light));
+}
+
+.orn-line-r {
+height: 1px;
+width: 100px;
+background: linear-gradient(90deg, var(–brown-light), transparent);
+}
+
+.page-tagline {
+font-family: ‘EB Garamond’, serif;
+font-size: 1.15rem;
+color: var(–text-light);
+font-style: italic;
+}
+
+/* CARD */
+.form-card {
+background: var(–white);
+border: 1px solid var(–border);
+border-radius: 4px;
+padding: 56px 60px;
+box-shadow: 0 8px 60px rgba(100,60,20,0.10), 0 2px 8px rgba(100,60,20,0.06);
+}
+
+/* SECTION */
+.sec-label {
+font-family: ‘Cinzel’, serif;
+font-size: 0.70rem;
+letter-spacing: 0.22em;
+color: var(–brown-light);
+text-transform: uppercase;
+padding-bottom: 12px;
+border-bottom: 1px solid var(–cream-dark);
+margin-bottom: 28px;
+margin-top: 44px;
+}
+
+.sec-first {
+margin-top: 0;
+}
+
+/* FIELDS */
+.field {
+margin-bottom: 26px;
+}
+
+.two-col {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+margin-bottom: 26px;
+}
+
+.field-label {
+display: block;
+font-family: ‘EB Garamond’, serif;
+font-size: 1rem;
+color: var(–text-light);
+margin-bottom: 10px;
+}
+
+.req {
+color: var(–brown-light);
+margin-left: 3px;
+}
+
+.inp {
+display: block;
+width: 100%;
+background: var(–cream);
+border: 1.5px solid var(–border);
+border-radius: 3px;
+padding: 15px 18px;
+font-family: ‘EB Garamond’, serif;
+font-size: 1.1rem;
+color: var(–text);
+outline: none;
+transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+-webkit-appearance: none;
+appearance: none;
+}
+
+.inp:focus {
+border-color: var(–brown-light);
+box-shadow: 0 0 0 4px rgba(196,149,106,0.14);
+background: var(–white);
+}
+
+.inp.bad {
+border-color: var(–error);
+}
+
+textarea.inp {
+min-height: 160px;
+resize: vertical;
+line-height: 1.7;
+}
+
+.ferr {
+font-size: 0.88rem;
+color: var(–error);
+margin-top: 6px;
+font-style: italic;
+display: none;
+}
+
+/* SERVICE CARDS */
+.svc-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 14px;
+margin-top: 6px;
+}
+
+.svc-item {
+position: relative;
+}
+
+.svc-cb {
+position: absolute;
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.svc-lbl {
+display: flex;
+align-items: center;
+gap: 14px;
+background: var(–cream);
+border: 1.5px solid var(–border);
+border-radius: 3px;
+padding: 18px 20px;
+cursor: pointer;
+transition: all 0.2s;
+font-family: ‘Cinzel’, serif;
+font-size: 0.78rem;
+letter-spacing: 0.10em;
+color: var(–text);
+user-select: none;
+}
+
+.svc-lbl .ico {
+font-size: 1.5rem;
+flex-shrink: 0;
+transition: transform 0.2s;
+}
+
+.svc-cb:checked + .svc-lbl {
+background: var(–brown-dark);
+border-color: var(–brown-dark);
+color: var(–cream);
+box-shadow: 0 4px 20px rgba(107,74,42,0.28);
+}
+
+.svc-cb:checked + .svc-lbl .ico {
+transform: scale(1.15);
+}
+
+.svc-lbl:hover {
+border-color: var(–brown-light);
+background: var(–white);
+}
+
+.full-width {
+grid-column: 1 / -1;
+}
+
+/* CONTACT PREF */
+.contact-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 14px;
+}
+
+.rad-item {
+position: relative;
+}
+
+.rad-inp {
+position: absolute;
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.rad-lbl {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+border: 1.5px solid var(–border);
+border-radius: 3px;
+padding: 16px;
+cursor: pointer;
+background: var(–cream);
+font-family: ‘Cinzel’, serif;
+font-size: 0.75rem;
+letter-spacing: 0.10em;
+color: var(–text);
+transition: all 0.2s;
+user-select: none;
+}
+
+.rad-inp:checked + .rad-lbl {
+background: var(–brown-dark);
+border-color: var(–brown-dark);
+color: var(–cream);
+box-shadow: 0 4px 16px rgba(107,74,42,0.25);
+}
+
+.rad-lbl:hover {
+border-color: var(–brown-light);
+background: var(–white);
+}
+
+/* SUBMIT */
+.submit-btn {
+display: block;
+width: 100%;
+margin-top: 40px;
+background: var(–brown-dark);
+color: var(–cream);
+border: none;
+border-radius: 3px;
+padding: 20px 24px;
+font-family: ‘Cinzel’, serif;
+font-size: 0.85rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+cursor: pointer;
+transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.submit-btn:hover {
+background: var(–brown);
+box-shadow: 0 6px 30px rgba(107,74,42,0.35);
+transform: translateY(-2px);
+}
+
+.submit-btn:active {
+transform: translateY(0);
+}
+
+.submit-btn:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+transform: none;
+}
+
+.notice {
+background: rgba(196,149,106,0.12);
+border: 1px solid var(–brown-lighter);
+border-radius: 3px;
+padding: 16px 20px;
+margin-top: 18px;
+font-size: 0.92rem;
+color: var(–text-light);
+font-style: italic;
+text-align: center;
+line-height: 1.6;
+}
+
+/* SUCCESS */
+.success-wrap {
+display: none;
+text-align: center;
+padding: 72px 32px;
+}
+
+.success-ico {
+font-size: 4rem;
+margin-bottom: 20px;
+}
+
+.success-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2.8rem;
+font-weight: 600;
+color: var(–brown-dark);
+margin-bottom: 14px;
+}
+
+.success-msg {
+color: var(–text-light);
+font-style: italic;
+font-size: 1.15rem;
+line-height: 1.8;
+max-width: 460px;
+margin: 0 auto 32px;
+}
+
+.success-box {
+background: var(–cream);
+border: 1px solid var(–border);
+border-radius: 3px;
+padding: 24px 32px;
+max-width: 480px;
+margin: 0 auto;
+text-align: left;
+font-size: 1rem;
+line-height: 2;
+color: var(–text);
+}
+
+.success-box strong {
+font-family: ‘Cinzel’, serif;
+font-size: 0.68rem;
+letter-spacing: 0.1em;
+color: var(–brown-dark);
+display: inline-block;
+min-width: 110px;
+}
+
+/* FOOTER */
+.footer {
+text-align: center;
+margin-top: 48px;
+}
+
+.footer-vals {
+font-family: ‘Cinzel’, serif;
+font-size: 0.65rem;
+letter-spacing: 0.3em;
+color: var(–brown-light);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 16px;
+}
+
+.fdot {
+width: 4px;
+height: 4px;
+background: var(–brown-light);
+border-radius: 50%;
+display: inline-block;
+}
+
+.footer-phone {
+margin-top: 12px;
+font-size: 1rem;
+color: var(–text-light);
+}
+
+/* SETUP BANNER */
+.setup-banner {
+background: #fff3cd;
+border: 2px solid #f0ad4e;
+border-radius: 4px;
+padding: 20px 24px;
+margin-bottom: 32px;
+font-family: ‘EB Garamond’, serif;
+font-size: 0.95rem;
+line-height: 1.7;
+color: #5a3e00;
+display: none;
+}
+
+.setup-banner h3 {
+font-family: ‘Cinzel’, serif;
+font-size: 0.8rem;
+letter-spacing: 0.1em;
+margin-bottom: 10px;
+color: #7a5200;
+}
+
+@media (max-width: 600px) {
+.page-wrapper { padding: 28px 16px 80px; }
+.form-card { padding: 32px 22px; }
+.page-title { font-size: 2.6rem; }
+.firm-name { font-size: 1.4rem; }
+.two-col { grid-template-columns: 1fr; gap: 0; }
+.svc-grid { grid-template-columns: 1fr; }
+.contact-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- SETUP BANNER (shown if keys not configured) -->
+
+  <div class="setup-banner" id="setupBanner">
+    <h3>⚙️ CONFIGURACIÓN REQUERIDA</h3>
+    Para activar el envío automático de correos, siga los pasos al final del formulario o contacte a su desarrollador.
+  </div>
+
+  <!-- HEADER -->
+
+  <div class="header">
+    <div class="logo-row">
+      <svg class="scale-svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="32" y1="8" x2="32" y2="56"/>
+        <line x1="18" y1="15" x2="46" y2="15"/>
+        <line x1="18" y1="15" x2="7" y2="36"/>
+        <line x1="46" y1="15" x2="57" y2="36"/>
+        <path d="M5 36 Q11 46 18 36" fill="none"/>
+        <path d="M46 36 Q53 46 59 36" fill="none"/>
+        <line x1="24" y1="56" x2="40" y2="56"/>
+      </svg>
+      <div class="divider-v"></div>
+      <div>
+        <div class="firm-name">Lcda. Stephanie Padilla Ortiz</div>
+        <div class="firm-sub">Consultoría y Servicio Legal</div>
+      </div>
+    </div>
+    <div class="page-title">Solicitud de Consulta</div>
+    <div class="ornament">
+      <div class="orn-line"></div>✦<div class="orn-line-r"></div>
+    </div>
+    <div class="page-tagline">Transformando procesos legales en experiencias claras y humanas</div>
+  </div>
+
+  <!-- FORM CARD -->
+
+  <div class="form-card">
+
+```
+<form id="mainForm" novalidate>
+
+  <!-- I: PERSONAL -->
+  <div class="sec-label sec-first">I &nbsp;·&nbsp; Información Personal</div>
+
+  <div class="two-col">
+    <div class="field">
+      <label class="field-label">Nombre Completo <span class="req">*</span></label>
+      <input class="inp" type="text" id="f-nombre" placeholder="Su nombre y apellidos">
+      <div class="ferr" id="e-nombre">Por favor ingrese su nombre completo.</div>
+    </div>
+    <div class="field">
+      <label class="field-label">Teléfono / WhatsApp <span class="req">*</span></label>
+      <input class="inp" type="tel" id="f-telefono" placeholder="787-000-0000">
+      <div class="ferr" id="e-telefono">Por favor ingrese su teléfono.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="field-label">Correo Electrónico</label>
+    <input class="inp" type="email" id="f-correo" placeholder="ejemplo@correo.com">
+    <div class="ferr" id="e-correo">Ingrese un correo válido o déjelo en blanco.</div>
+  </div>
+
+  <!-- II: SERVICIO -->
+  <div class="sec-label">II &nbsp;·&nbsp; Área Legal de Interés</div>
+
+  <div class="field">
+    <label class="field-label">Seleccione el área o áreas en que necesita orientación: <span class="req">*</span></label>
+    <div class="svc-grid">
+
+      <div class="svc-item">
+        <input class="svc-cb" type="checkbox" id="svc1" value="Daños y Perjuicios">
+        <label class="svc-lbl" for="svc1">
+          <span class="ico">⚠️</span> Daños y Perjuicios
+        </label>
+      </div>
+
+      <div class="svc-item">
+        <input class="svc-cb" type="checkbox" id="svc2" value="Familia">
+        <label class="svc-lbl" for="svc2">
+          <span class="ico">👨‍👩‍👧</span> Familia
+        </label>
+      </div>
+
+      <div class="svc-item">
+        <input class="svc-cb" type="checkbox" id="svc3" value="Sucesiones">
+        <label class="svc-lbl" for="svc3">
+          <span class="ico">📄</span> Sucesiones
+        </label>
+      </div>
+
+      <div class="svc-item">
+        <input class="svc-cb" type="checkbox" id="svc4" value="Contratos">
+        <label class="svc-lbl" for="svc4">
+          <span class="ico">🤝</span> Contratos
+        </label>
+      </div>
+
+      <div class="svc-item full-width">
+        <input class="svc-cb" type="checkbox" id="svc5" value="Propiedad">
+        <label class="svc-lbl" for="svc5">
+          <span class="ico">🏠</span> Propiedad
+        </label>
+      </div>
+
+    </div>
+    <div class="ferr" id="e-servicio">Seleccione al menos un área de interés.</div>
+  </div>
+
+  <!-- III: DESCRIPCIÓN -->
+  <div class="sec-label">III &nbsp;·&nbsp; Descripción del Asunto</div>
+
+  <div class="field">
+    <label class="field-label">Describa brevemente su situación <span class="req">*</span></label>
+    <textarea class="inp" id="f-desc" placeholder="Explique en sus propias palabras cuál es su asunto o consulta legal…"></textarea>
+    <div class="ferr" id="e-desc">Por favor describa su situación.</div>
+  </div>
+
+  <!-- IV: CONTACTO -->
+  <div class="sec-label">IV &nbsp;·&nbsp; Preferencia de Contacto</div>
+
+  <div class="field">
+    <div class="contact-grid">
+      <div class="rad-item">
+        <input class="rad-inp" type="radio" id="r1" name="contacto" value="WhatsApp" checked>
+        <label class="rad-lbl" for="r1">📱 WhatsApp</label>
+      </div>
+      <div class="rad-item">
+        <input class="rad-inp" type="radio" id="r2" name="contacto" value="Llamada">
+        <label class="rad-lbl" for="r2">📞 Llamada</label>
+      </div>
+      <div class="rad-item">
+        <input class="rad-inp" type="radio" id="r3" name="contacto" value="Correo Electrónico">
+        <label class="rad-lbl" for="r3">✉️ Correo</label>
+      </div>
+      <div class="rad-item">
+        <input class="rad-inp" type="radio" id="r4" name="contacto" value="Cualquiera">
+        <label class="rad-lbl" for="r4">✅ Cualquiera</label>
+      </div>
+    </div>
+  </div>
+
+  <button class="submit-btn" type="submit" id="submitBtn">Enviar Solicitud</button>
+
+  <div class="notice">
+    🔒 Su información es confidencial y será utilizada únicamente para comunicarnos con usted respecto a su consulta legal.
+  </div>
+
+</form>
+
+<!-- SUCCESS -->
+<div class="success-wrap" id="successWrap">
+  <div class="success-ico">⚖️</div>
+  <div class="success-title">¡Solicitud Enviada!</div>
+  <div class="success-msg">
+    Hemos recibido su consulta. La Lcda. Stephanie Padilla Ortiz se comunicará con usted a la brevedad posible.
+  </div>
+  <div class="success-box" id="successBox"></div>
+</div>
+```
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+    <div class="footer-vals">
+      CLARIDAD <span class="fdot"></span> ESTRATEGIA <span class="fdot"></span> COMPROMISO
+    </div>
+    <div class="footer-phone">📱 787-690-9410</div>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+//  EmailJS CONFIGURATION
+//  Steps to activate automatic email sending:
+//  1. Go to https://www.emailjs.com — create a free account
+//  2. Add Email Service: connect your Outlook account
+//     → Copy the Service ID (e.g. "service_xxxxxxx")
+//  3. Create Email Template with these variables:
+//     {{nombre}}  {{telefono}}  {{correo}}
+//     {{servicios}}  {{descripcion}}  {{contacto}}
+//     Set "To Email" to: Lcda.padillaortiz@outlook.com
+//     → Copy the Template ID (e.g. "template_xxxxxxx")
+//  4. Go to Account → API Keys → copy your Public Key
+//  5. Replace the three values below and re-upload to GitHub
+// ============================================================
+
+var EJ_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";   // replace
+var EJ_SERVICE_ID  = "YOUR_SERVICE_ID";   // replace
+var EJ_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // replace
+
+var configured = (
+  EJ_PUBLIC_KEY  !== "YOUR_PUBLIC_KEY" &&
+  EJ_SERVICE_ID  !== "YOUR_SERVICE_ID" &&
+  EJ_TEMPLATE_ID !== "YOUR_TEMPLATE_ID"
+);
+
+if (configured) {
+  emailjs.init({ publicKey: EJ_PUBLIC_KEY });
+} else {
+  document.getElementById("setupBanner").style.display = "block";
+}
+
+// ── Helpers ──────────────────────────────────────────────
+function showErr(id, show) {
+  document.getElementById("e-" + id).style.display = show ? "block" : "none";
+}
+function markBad(el, bad) {
+  if (bad) { el.classList.add("bad"); } else { el.classList.remove("bad"); }
+}
+
+// ── Submit ───────────────────────────────────────────────
+document.getElementById("mainForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  var nombre   = document.getElementById("f-nombre");
+  var telefono = document.getElementById("f-telefono");
+  var correo   = document.getElementById("f-correo");
+  var desc     = document.getElementById("f-desc");
+  var svcChecked = document.querySelectorAll(".svc-cb:checked");
+  var contacto   = document.querySelector(".rad-inp:checked");
+
+  var ok = true;
+
+  if (!nombre.value.trim()) {
+    showErr("nombre", true); markBad(nombre, true); ok = false;
+  } else { showErr("nombre", false); markBad(nombre, false); }
+
+  if (!telefono.value.trim()) {
+    showErr("telefono", true); markBad(telefono, true); ok = false;
+  } else { showErr("telefono", false); markBad(telefono, false); }
+
+  if (correo.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim())) {
+    showErr("correo", true); markBad(correo, true); ok = false;
+  } else { showErr("correo", false); markBad(correo, false); }
+
+  if (svcChecked.length === 0) {
+    showErr("servicio", true); ok = false;
+  } else { showErr("servicio", false); }
+
+  if (!desc.value.trim()) {
+    showErr("desc", true); markBad(desc, true); ok = false;
+  } else { showErr("desc", false); markBad(desc, false); }
+
+  if (!ok) return;
+
+  var serviciosStr = Array.from(svcChecked).map(function(s){ return s.value; }).join(", ");
+  var prefContacto = contacto ? contacto.value : "WhatsApp";
+  var correoVal    = correo.value.trim() || "No proporcionado";
+
+  var params = {
+    to_email:   "Lcda.padillaortiz@outlook.com",
+    nombre:     nombre.value.trim(),
+    telefono:   telefono.value.trim(),
+    correo:     correoVal,
+    servicios:  serviciosStr,
+    descripcion: desc.value.trim(),
+    contacto:   prefContacto
+  };
+
+  var btn = document.getElementById("submitBtn");
+  btn.disabled = true;
+  btn.textContent = "Enviando…";
+
+  if (!configured) {
+    // Demo mode — show success without actually sending
+    showSuccess(params);
+    return;
+  }
+
+  emailjs.send(EJ_SERVICE_ID, EJ_TEMPLATE_ID, params)
+    .then(function() {
+      showSuccess(params);
+    })
+    .catch(function(err) {
+      btn.disabled = false;
+      btn.textContent = "Enviar Solicitud";
+      alert("Error al enviar. Por favor llámenos al 787-690-9410.\n\nDetalle técnico: " + JSON.stringify(err));
+    });
+});
+
+function showSuccess(p) {
+  document.getElementById("mainForm").style.display = "none";
+  document.getElementById("successBox").innerHTML =
+    "<strong>Nombre:</strong> "      + p.nombre      + "<br>" +
+    "<strong>Teléfono:</strong> "    + p.telefono    + "<br>" +
+    "<strong>Correo:</strong> "      + p.correo      + "<br>" +
+    "<strong>Área(s):</strong> "     + p.servicios   + "<br>" +
+    "<strong>Contacto vía:</strong> "+ p.contacto;
+  document.getElementById("successWrap").style.display = "block";
+}
+</script>
+
+</body>
+</html>
